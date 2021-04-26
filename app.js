@@ -83,5 +83,5 @@ app.post("/failure", function(req, res){
 //API KEY 
 //b10dd27f4032b4f1c1b8c469d8378ddf-us1
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Server up and running on port: "+ (process.env.PORT));
+    console.log("Server up and running on port: "+ (process.env.PORT)|| 3000);
 });
