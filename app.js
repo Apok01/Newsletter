@@ -4,8 +4,16 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
-
+//app.use(express.static(__dirname + '/public'));
+function optionHeaders(){
+  return {
+        setHeaders: function (res, path, stat) {
+             var extenstions = path.split('.');
+             res.set('Content-Type','text/'+extenstions[extenstions.length-1]);
+        }
+  }
+}
+app.use(express.static(__dirname + '/css', optionHeaders())); 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res){
