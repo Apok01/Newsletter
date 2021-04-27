@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+app.engine('html', require('ejs').renderFile);
 
 //app.use(express.static(__dirname + '/public'));
 function optionHeaders(){
