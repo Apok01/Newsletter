@@ -1,6 +1,7 @@
 const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 
@@ -13,11 +14,11 @@ function optionHeaders(){
         }
   }
 }
-app.use(express.static(__dirname + '/css', optionHeaders())); 
+app.use(express.static(__dirname + '/public', optionHeaders())); 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + "/signup.html");
+    res.sendFile(path.join(__dirname + '/signup.html'));
 });
 app.post('/', function(req, res){
    const firstName = req.body.fName;
