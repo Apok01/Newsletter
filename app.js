@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-app.engine('html', require('ejs').renderFile);
-
 //app.use(express.static(__dirname + '/public'));
 function optionHeaders(){
   return {
@@ -15,7 +13,7 @@ function optionHeaders(){
         }
   }
 }
-app.use(express.static(__dirname + '/public', optionHeaders())); 
+app.use(express.static(__dirname + '/', optionHeaders())); 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res){
